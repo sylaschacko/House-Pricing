@@ -5,7 +5,7 @@ import seaborn as sns
 import numpy as np
 
 #read the data file
-train_data = pd.read_csv('train.csv')
+train_data = pd.read_csv(r'C:\Users\sylas\House-Pricing\House-Pricing\train.csv')
 
 # Prints first few rows
 print(train_data.head())
