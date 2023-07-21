@@ -61,7 +61,4 @@ df['BsmtExposure']=df['BsmtExposure'].fillna(df['BsmtExposure'].mode()[0])
 
 sns.heatmap(df.isnull(),yticklabels=False,cbar=False,cmap='YlGnBu')
 
-df['Electrical']=df['Electrical'].fillna(df['Electrical'].mean())
-
-## Fill Missing Values
-
+# Fill Missing Values
