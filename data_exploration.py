@@ -58,6 +58,12 @@ df.isnull().sum
 df['MasVnrType']=df['MasVnrType'].fillna(df['MasVnrType'].mode()[0])
 df['MasVnrArea']=df['MasVnrArea'].fillna(df['MasVnrArea'].mode()[0])
 df['BsmtExposure']=df['BsmtExposure'].fillna(df['BsmtExposure'].mode()[0])
+df['BsmtFinType2']=df['BsmtFinType2'].fillna(df['BsmtFinType2'].mode()[0])
+df['BsmtFinType1']=df['BsmtFinType1'].fillna(df['BsmtFinType1'].mode()[0])
+
+sns.heatmap(df.isnull(),yticklabels=False,cbar=False,cmap='YlGnBu')
+
+df.dropna(inplace=True)
 
 sns.heatmap(df.isnull(),yticklabels=False,cbar=False,cmap='YlGnBu')
 
