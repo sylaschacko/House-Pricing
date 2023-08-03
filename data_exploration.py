@@ -63,8 +63,38 @@ df['BsmtFinType1']=df['BsmtFinType1'].fillna(df['BsmtFinType1'].mode()[0])
 
 sns.heatmap(df.isnull(),yticklabels=False,cbar=False,cmap='YlGnBu')
 
+# Drops all null values
 df.dropna(inplace=True)
 
 sns.heatmap(df.isnull(),yticklabels=False,cbar=False,cmap='YlGnBu')
+
+# One hot encoding (Replaces categorical columns with the subcategories)
+def category_onehot_multcols(multcolumns):
+    df_final = final_df
+    i=0
+    for fields in multcolumns:
+        
+        print(fields)
+        df1=pd.get_dummies(final_df[fields],drop_first=True)
+        
+        final_df.drop([fields],axis=1,inplace=True)
+        if i==0:
+            df_final=df1.copy()
+        else:
+            
+            df_final=pd.concat([df_final,df1],axis=1)
+        i=i+1
+       
+        
+    df_final=pd.concat([final_df,df_final],axis=1)
+        
+    return df_final
+
+main_df=df.copy()
+
+# Combine Test Data 
+
+test_df=pd.read_csv('formulatedtest.csv')
+test_df.shape
 
 # Fill Missing Values
